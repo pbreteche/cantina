@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import {RestaurantList} from '../model/restaurantList';
+import {Component, OnInit, Input} from '@angular/core';
 import {Restaurant} from '../model/restaurant';
 
 @Component({
@@ -8,13 +7,11 @@ import {Restaurant} from '../model/restaurant';
   styleUrls: ['./page-title.component.css']
 })
 export class PageTitleComponent implements OnInit {
-
+  @Input()
   activeRestaurant: Restaurant;
 
   constructor() {
-    this.activeRestaurant = (new RestaurantList()).data[0];
   }
-
 
   ngOnInit() {
   }

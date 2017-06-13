@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import {Restaurant} from './model/restaurant';
+import {RestaurantList} from './model/restaurantList';
 
 @Component({
   selector: 'app-root',
@@ -7,11 +8,9 @@ import {Restaurant} from './model/restaurant';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  resto: Restaurant;
+  restaurantList: RestaurantList;
 
   constructor() {
-    this.resto = new Restaurant();
-    this.resto.name = 'La P\'tite Ardoise';
-    this.resto.address = 'Bd Vincent Gache';
+    this.restaurantList = new RestaurantList();
   }
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, Input} from '@angular/core';
 import {RestaurantList} from '../model/restaurantList';
 
 @Component({
@@ -7,6 +7,7 @@ import {RestaurantList} from '../model/restaurantList';
   styleUrls: ['./main-menu.component.css']
 })
 export class MainMenuComponent implements OnInit {
+  @Input()
   menuList: RestaurantList;
 
   constructor() {

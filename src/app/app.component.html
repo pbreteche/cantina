@@ -1,6 +1,6 @@
 <!--The whole content below can be removed with the new code.-->
 <div class="main-container">
-  <app-page-title></app-page-title>
-  <app-main-menu></app-main-menu>
-  <app-resto-detail></app-resto-detail>
+  <app-page-title [activeRestaurant]="restaurantList.data[0]"></app-page-title>
+  <app-main-menu [menuList]="restaurantList"></app-main-menu>
+  <app-resto-detail [activeRestaurant]="restaurantList.data[0]"></app-resto-detail>
 </div>

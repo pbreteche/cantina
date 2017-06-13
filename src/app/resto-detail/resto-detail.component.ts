@@ -1,6 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, Input} from '@angular/core';
 import {Restaurant} from '../model/restaurant';
-import {RestaurantList} from '../model/restaurantList';
 
 @Component({
   selector: 'app-resto-detail',
@@ -8,12 +7,12 @@ import {RestaurantList} from '../model/restaurantList';
   styleUrls: ['./resto-detail.component.css']
 })
 export class RestoDetailComponent implements OnInit {
-
+  @Input()
   activeRestaurant: Restaurant;
 
   constructor() {
-    this.activeRestaurant = (new RestaurantList()).data[0];
   }
+
   ngOnInit() {
   }
 
