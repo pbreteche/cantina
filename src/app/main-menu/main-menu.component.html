@@ -1,7 +1,11 @@
 <div>
+  <div>
+    <label for="menu-filter">Filtre</label>
+    <input type="text" id="menu-filter" (keyup)="filter($event)" />
+  </div>
   <ul>
-    <li *ngFor="let resto of menuList.data">
-      {{resto.name}}
+    <li *ngFor="let resto of menuList.searchName(needle)">
+      <a (click)="select(resto)">{{resto.name}}</a>
     </li>
   </ul>
 </div>

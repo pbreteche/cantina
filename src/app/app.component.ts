@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import {Restaurant} from './model/restaurant';
 import {RestaurantList} from './model/restaurantList';
+import {Restaurant} from './model/restaurant';
 
 @Component({
   selector: 'app-root',
@@ -9,8 +9,14 @@ import {RestaurantList} from './model/restaurantList';
 })
 export class AppComponent {
   restaurantList: RestaurantList;
+  selectedRestaurant: Restaurant;
 
   constructor() {
     this.restaurantList = new RestaurantList();
+    this.selectedRestaurant = this.restaurantList.data[0];
+  }
+
+  selectRestaurant(restaurant: Restaurant) {
+    this.selectedRestaurant = restaurant;
   }
 }

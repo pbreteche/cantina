@@ -12,4 +12,15 @@ export class RestaurantList {
       new Restaurant('Les jardins des Fonderies', 'Bd Vincent Gache'),
     ];
   }
+
+  searchName(needle: string) {
+    let result: Restaurant[] = [];
+    for (let resto of this.data) {
+      if (resto.name.toLowerCase().indexOf(needle.toLowerCase()) > -1) {
+        result.push(resto);
+      }
+    }
+    //console.log('search', result);
+    return result;
+  }
 }

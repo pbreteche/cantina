@@ -1,5 +1,6 @@
-import {Component, OnInit, Input} from '@angular/core';
+import {Component, OnInit, Input, EventEmitter, Output} from '@angular/core';
 import {RestaurantList} from '../model/restaurantList';
+import {Restaurant} from '../model/restaurant';
 
 @Component({
   selector: 'app-main-menu',
@@ -9,12 +10,22 @@ import {RestaurantList} from '../model/restaurantList';
 export class MainMenuComponent implements OnInit {
   @Input()
   menuList: RestaurantList;
+  @Output()
+  restaurantSelection = new EventEmitter();
+
+  needle: string = '';
 
   constructor() {
-    this.menuList = new RestaurantList();
   }
 
   ngOnInit() {
   }
 
+  select(restaurant: Restaurant) {
+    this.restaurantSelection.emit(restaurant);
+  }
+
+  filter($event) {
+    this.needle = $event.target.value;
+  }
 }
