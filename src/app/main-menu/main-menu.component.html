@@ -1,10 +1,10 @@
 <div>
   <div>
     <label for="menu-filter">Filtre</label>
-    <input type="text" id="menu-filter" (keyup)="filter($event)" />
+    <input #filter type="text" id="menu-filter" (keyup)="null" />
   </div>
   <ul>
-    <li *ngFor="let resto of menuList.searchName(needle)">
+    <li *ngFor="let resto of menuList.searchName(filter.value)">
       <a (click)="select(resto)">{{resto.name}}</a>
     </li>
   </ul>

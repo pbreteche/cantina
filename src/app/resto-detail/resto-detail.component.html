@@ -1,3 +1,7 @@
 <p>
-  Superbe restaurant situé {{activeRestaurant.address}}
+  Superbe restaurant situé {{activeRestaurant.address}}, {{activeRestaurant.city}}.<br />
+  Vous pourrez y déguster:
 </p>
+<ul>
+  <li *ngFor="let dish of activeRestaurant.dishes">{{dish}}</li>
+</ul>

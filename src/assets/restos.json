@@ -1,0 +1,54 @@
+{
+  "poulet": "pané",
+  "data": [
+    {
+      "name": "La P'tite Ardoise",
+      "address": "Bd Vincent Gache",
+      "agency": 1,
+      "dishes": [
+        "Sardines",
+        "Salade",
+        "Soupe"
+      ]
+    },
+    {
+      "name": "Les Prisons du Bouffay",
+      "address": "Place du Bouffay",
+      "agency": {"Nantes": 0},
+      "dishes": [
+        "Rumsteack",
+        "Bavette",
+        "Filet"
+      ]
+    },
+    {
+      "name": "L'Ardoise",
+      "address": "Rue Léon Blum",
+      "agency": 0,
+      "dishes": [
+        "Huitre",
+        "Crevettes",
+        "Bulot"
+      ]
+    },
+    {
+      "name": "La Vache Nantaise",
+      "address": "Rue Kervegan",
+      "agency": 0,
+      "dishes": [
+        "Poireau",
+        "Patate"
+      ]
+    },
+    {
+      "name": "Les jardins des Fonderies",
+      "address": "Bd Vincent Gache",
+      "agency": 0,
+      "dishes": [
+        "Hiboux",
+        "Cailloux",
+        "Joujoux"
+      ]
+    }
+  ]
+}

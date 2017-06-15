@@ -3,8 +3,12 @@
   flex-flow: row wrap;
 }
 
-app-page-title {
+app-page-title,
+app-resto-form {
   flex: 0 1 100%;
+}
+
+app-page-title {
   text-align: center;
 }
 

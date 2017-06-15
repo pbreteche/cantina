@@ -1,26 +1,18 @@
-import {Restaurant} from './restaurant';
+import {Injectable, Inject} from '@angular/core';
+import {RESTAURANT_DATA} from '../fixtures/restaurant-data';
 
+@Injectable()
 export class RestaurantList {
-  data: Restaurant[];
 
-  constructor() {
-    this.data = [
-      new Restaurant('La P\'tite Ardoise', 'Bd Vincent Gache'),
-      new Restaurant('Les Prisons de Nantes', 'Place du Bouffay'),
-      new Restaurant('L\'Ardoise', 'Rue Léon Blum'),
-      new Restaurant('La Vache Nantaise', 'Rue Kervegan'),
-      new Restaurant('Les jardins des Fonderies', 'Bd Vincent Gache'),
-    ];
+  constructor(@Inject(RESTAURANT_DATA)public data) {
   }
 
   searchName(needle: string) {
-    let result: Restaurant[] = [];
-    for (let resto of this.data) {
-      if (resto.name.toLowerCase().indexOf(needle.toLowerCase()) > -1) {
-        result.push(resto);
-      }
-    }
-    //console.log('search', result);
-    return result;
+    return this.data.filter(
+      resto =>
+        resto.name.toLowerCase().indexOf(needle.toLowerCase()) > -1
+    );
   }
 }
+
+export class RestaurantListBis extends RestaurantList{}

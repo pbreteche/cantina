@@ -1,6 +1,8 @@
 <!--The whole content below can be removed with the new code.-->
 <div class="main-container">
   <app-page-title [activeRestaurant]="selectedRestaurant"></app-page-title>
+  <!--<app-resto-form (restaurantCreated)="addRestaurant($event)"></app-resto-form>-->
+  <app-reactive-resto-form (restaurantCreated)="addRestaurant($event)"></app-reactive-resto-form>
   <app-main-menu [menuList]="restaurantList" (restaurantSelection)="selectRestaurant($event)"></app-main-menu>
   <app-resto-detail [activeRestaurant]="selectedRestaurant"></app-resto-detail>
 </div>

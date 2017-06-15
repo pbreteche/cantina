@@ -13,8 +13,6 @@ export class MainMenuComponent implements OnInit {
   @Output()
   restaurantSelection = new EventEmitter();
 
-  needle: string = '';
-
   constructor() {
   }
 
@@ -23,9 +21,5 @@ export class MainMenuComponent implements OnInit {
 
   select(restaurant: Restaurant) {
     this.restaurantSelection.emit(restaurant);
-  }
-
-  filter($event) {
-    this.needle = $event.target.value;
   }
 }
