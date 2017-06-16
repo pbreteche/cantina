@@ -1,0 +1,16 @@
+<form [formGroup]="restoForm">
+  <div>
+    <div [hidden]="restoForm.get('name').status !== 'INVALID' || restoForm.get('name').pristine">
+      <p>Champs obligatoire</p>
+    </div>
+    <label for="resto[name]">Nom</label>
+    <input type="text" name="name" id="resto[name]" formControlName="name" />
+  </div>
+  <div>
+    <label for="resto[address]">Adresse</label>
+    <input type="text" name="address" id="resto[address]" formControlName="address" />
+  </div>
+  <button type="submit" (click)="createRestaurant()" [disabled]="!restoForm.valid">
+    Enregistrer
+  </button>
+</form>

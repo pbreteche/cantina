@@ -1,0 +1,42 @@
+<form #restoForm="ngForm">
+  <div>
+    <p [hidden]="restoName.valid || restoName.untouched">
+      Le nom doit être composé exclusivement de lettres minuscules
+    </p>
+    <label for="resto[name]">Nom</label>
+    <input type="text" name="name" id="resto[name]"
+           #restoName="ngModel"
+           required
+           pattern="[a-zA-Z]+"
+           [(ngModel)]="newRestaurant.name" />
+  </div>
+  <div>
+    <p [hidden]="restoAddress.valid || restoAddress.untouched">
+      L'adresse est obligatoire
+    </p>
+    <label for="resto[address]">Adresse</label>
+    <input type="text" name="address" id="resto[address]"
+           #restoAddress="ngModel"
+           required
+           [(ngModel)]="newRestaurant.address" />
+  </div>
+  <div>
+    <label for="resto[city]">Ville</label>
+    <select name="city" id="resto[city]" [(ngModel)]="newRestaurant.city">
+      <option *ngFor="let city of cities" [value]="city">{{city}}</option>
+    </select>
+  </div>
+  <div *ngFor="let dish of newRestaurant.dishes; let i=index; trackBy: trackDishes">
+    <label for="resto[dish{{i}}]">Plat {{i}}</label>
+    <input type="text" name="dish{{i}}" id="resto[dish{{i}}]"
+           [(ngModel)]="newRestaurant.dishes[i]" />
+  </div>
+  <div class="form-group">
+    <label for="resto[dish]">Nouveau plat</label>
+    <input [(ngModel)]="newDish"  type="text" id="resto[dish]" name="dish">
+    <button (click)="addDish()">+</button>
+  </div>
+  <button type="submit" [disabled]="!restoForm.form.valid" (click)="createRestaurant(); restoForm.reset()">
+    Enregistrer
+  </button>
+</form>
