@@ -8,9 +8,6 @@ import { RestoDetailComponent } from './resto-detail/resto-detail.component';
 import { RestoFormComponent } from './resto-form/resto-form.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { ReactiveRestoFormComponent } from './reactive-resto-form/reactive-resto-form.component';
-import {RestaurantList, RestaurantListBis} from './model/restaurantList';
-import {RESTAURANT_FIXTURE, RESTAURANT_DATA} from './fixtures/restaurant-data';
-import {restoFacto, RESTAURANT_DATA_BIS} from './fixtures/restaurant-factory';
 import {HttpModule} from '@angular/http';
 
 @NgModule({
@@ -27,13 +24,6 @@ import {HttpModule} from '@angular/http';
     FormsModule,
     ReactiveFormsModule,
     HttpModule
-  ],
-  providers: [
-    RestaurantList,
-    {provide: RestaurantListBis, useClass: RestaurantList},
-    {provide: RESTAURANT_DATA, useValue: RESTAURANT_FIXTURE},
-    {provide: RESTAURANT_DATA_BIS, useFactory: restoFacto, deps: [RESTAURANT_DATA]},
-
   ],
   bootstrap: [AppComponent]
 })

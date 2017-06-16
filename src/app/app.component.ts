@@ -24,6 +24,7 @@ export class AppComponent {
         this.selectedRestaurant = this.restaurantList.data[0];
       }
     );
+    this.restaurantService.postNewOne(new Restaurant('Chez Luzette'));
     this.selectedRestaurant = new Restaurant("chargement", "ça arrive...")
   }
 
