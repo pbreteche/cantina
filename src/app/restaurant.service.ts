@@ -29,9 +29,11 @@ export class RestaurantService {
   }
 
   postNewOne(restaurant: Restaurant) {
+    /*
     this.http.post('/index.php', restaurant)
       .toPromise()
       .then(response => {})
+      */
   }
 
 }

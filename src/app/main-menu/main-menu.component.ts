@@ -1,6 +1,7 @@
-import {Component, OnInit, Input, EventEmitter, Output} from '@angular/core';
+import {Component, OnInit, EventEmitter, Output} from '@angular/core';
 import {RestaurantList} from '../model/restaurantList';
 import {Restaurant} from '../model/restaurant';
+import {RestaurantStoreService} from '../restaurant-store.service';
 
 @Component({
   selector: 'app-main-menu',
@@ -8,18 +9,23 @@ import {Restaurant} from '../model/restaurant';
   styleUrls: ['./main-menu.component.css']
 })
 export class MainMenuComponent implements OnInit {
-  @Input()
   menuList: RestaurantList;
   @Output()
   restaurantSelection = new EventEmitter();
 
-  constructor() {
+  constructor(private restaurantStore: RestaurantStoreService) {
+    this.menuList = this.restaurantStore.getRestoList();
   }
 
   ngOnInit() {
+    this.restaurantStore.getObservable().subscribe(restoList => this.menuList = restoList);
   }
 
   select(restaurant: Restaurant) {
     this.restaurantSelection.emit(restaurant);
+  }
+
+  sendFilter(needle: string) {
+    this.restaurantStore.filter(needle);
   }
 }

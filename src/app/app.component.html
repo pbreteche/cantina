@@ -3,6 +3,7 @@
   <app-page-title [activeRestaurant]="selectedRestaurant"></app-page-title>
   <!--<app-resto-form (restaurantCreated)="addRestaurant($event)"></app-resto-form>-->
   <app-reactive-resto-form (restaurantCreated)="addRestaurant($event)"></app-reactive-resto-form>
-  <app-main-menu [menuList]="restaurantList" (restaurantSelection)="selectRestaurant($event)"></app-main-menu>
+  <app-main-menu (restaurantSelection)="selectRestaurant($event)"></app-main-menu>
   <app-resto-detail [activeRestaurant]="selectedRestaurant"></app-resto-detail>
+  <app-observable></app-observable>
 </div>

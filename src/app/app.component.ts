@@ -3,19 +3,21 @@ import 'rxjs/add/operator/toPromise';
 import {Restaurant} from './model/restaurant';
 import {RestaurantList} from './model/restaurantList';
 import {RestaurantService} from './restaurant.service';
+import {RestaurantStoreService} from './restaurant-store.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
-  providers: [RestaurantService]
+  providers: [RestaurantService, RestaurantStoreService]
 })
 export class AppComponent {
   restaurantService: RestaurantService;
   restaurantList: RestaurantList;
   selectedRestaurant: Restaurant;
 
-  constructor(restaurantService: RestaurantService) {
+  constructor(restaurantService: RestaurantService, restaurantStore: RestaurantStoreService) {
+    restaurantStore.init();
     this.restaurantList = new RestaurantList([]);
     this.restaurantService = restaurantService;
     this.restaurantService.loadRestaurants().then(
