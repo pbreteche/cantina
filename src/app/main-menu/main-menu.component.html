@@ -5,7 +5,7 @@
   </div>
   <ul>
     <li *ngFor="let resto of menuList.data">
-      <a (click)="select(resto)">{{resto.name}}</a>
+      <a [routerLink]="['/resto', resto.id]" (click)="select(resto)">{{resto.name}}</a>
     </li>
   </ul>
 </div>

@@ -1,7 +1,11 @@
+<a routerLink="/">Retour à la liste</a>
+<p>{{title}}</p>
+<div *ngIf="activeRestaurant">
 <p>
-  Superbe restaurant situé {{activeRestaurant.address}}, {{activeRestaurant.city}}.<br />
+  Superbe restaurant situé {{activeRestaurant.address }}, {{activeRestaurant.city }}.<br />
   Vous pourrez y déguster:
 </p>
 <ul>
   <li *ngFor="let dish of activeRestaurant.dishes">{{dish}}</li>
 </ul>
+</div>

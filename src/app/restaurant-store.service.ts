@@ -9,12 +9,15 @@ export class RestaurantStoreService {
   observableStore: Subject<RestaurantList>;
   private data: RestaurantList;
   public restos: RestaurantList;
-
+  public currentFilter: string = '';
+  public currentRestaurant: Subject<Restaurant>;
+  private currentId = -1;
 
   constructor(private http: Http) {
     this.observableStore = new Subject<RestaurantList>();
+    this.currentRestaurant = new Subject<Restaurant>();
     this.data = new RestaurantList([]);
-    this.restos = this.data;
+    this.restos = new RestaurantList(this.data.data);
   }
 
   getObservable() {
@@ -32,12 +35,31 @@ export class RestaurantStoreService {
           restoData => Object.assign(new Restaurant, restoData)
         ) as Restaurant[]);
         this.restos = this.data;
-        this.observableStore.next(this.restos);
+        this.onChange();
       })
   }
 
   filter(needle: string) {
+    this.currentFilter = needle;
     this.restos = new RestaurantList(this.data.searchName(needle));
+    this.onChange();
+  }
+
+  add(newRestaurant: Restaurant) {
+    this.data.data.push(newRestaurant);
+    this.filter(this.currentFilter);
+  }
+
+  setCurrentId(id) {
+    let previousId = this.currentId;
+    this.currentId = id;
+    if (this.currentId != previousId) {
+      this.currentRestaurant.next(this.data.byId(this.currentId));
+    }
+  }
+
+  onChange() {
     this.observableStore.next(this.restos);
+    this.currentRestaurant.next(this.data.byId(this.currentId));
   }
 }

@@ -2,6 +2,7 @@
   "poulet": "pané",
   "data": [
     {
+      "id": 1,
       "name": "La P'tite Ardoise",
       "address": "Bd Vincent Gache",
       "agency": 1,
@@ -12,6 +13,7 @@
       ]
     },
     {
+      "id": 2,
       "name": "Les Prisons du Bouffay",
       "address": "Place du Bouffay",
       "agency": {"Nantes": 0},
@@ -22,6 +24,7 @@
       ]
     },
     {
+      "id": 43,
       "name": "L'Ardoise",
       "address": "Rue Léon Blum",
       "agency": 0,
@@ -32,6 +35,7 @@
       ]
     },
     {
+      "id": 23,
       "name": "La Vache Nantaise",
       "address": "Rue Kervegan",
       "agency": 0,
@@ -41,6 +45,7 @@
       ]
     },
     {
+      "id": 12,
       "name": "Les jardins des Fonderies",
       "address": "Bd Vincent Gache",
       "agency": 0,

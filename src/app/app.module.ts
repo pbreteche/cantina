@@ -11,6 +11,7 @@ import { ReactiveRestoFormComponent } from './reactive-resto-form/reactive-resto
 import {HttpModule} from '@angular/http';
 import { ObservableComponent } from './observable/observable.component';
 import {RestaurantStoreService} from './restaurant-store.service';
+import {RouterModule} from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,11 @@ import {RestaurantStoreService} from './restaurant-store.service';
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpModule
+    HttpModule,
+    RouterModule.forRoot([
+      { path: '', component: MainMenuComponent },
+      { path: 'resto/:id', component: RestoDetailComponent }
+    ])
   ],
   providers: [
     RestaurantStoreService

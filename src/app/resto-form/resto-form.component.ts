@@ -1,6 +1,7 @@
 import {Component, OnInit, Output, EventEmitter} from '@angular/core';
 import {Restaurant} from '../model/restaurant';
 import {Agencies} from '../model/agencies';
+import {RestaurantStoreService} from '../restaurant-store.service';
 
 @Component({
   selector: 'app-resto-form',
@@ -13,16 +14,13 @@ export class RestoFormComponent {
   cities: string[];
   newDish = '';
 
-  constructor() {
+  constructor(private restaurantStore: RestaurantStoreService) {
     let agenciesData = Object.keys(Agencies).map(k => Agencies[k]);
     this.cities = agenciesData.filter(v => typeof v === "string") as string[];
   }
 
-  @Output()
-  restaurantCreated = new EventEmitter<Restaurant>();
-
   createRestaurant() {
-    this.restaurantCreated.emit(this.newRestaurant);
+    this.restaurantStore.add(this.newRestaurant);
     this.newRestaurant = new Restaurant();
   }
 
